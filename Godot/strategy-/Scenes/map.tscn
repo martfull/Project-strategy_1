@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=4 uid="uid://ce25tihetdkfs"]
+
+[ext_resource type="Texture2D" uid="uid://5ol2hffvsoyt" path="res://sprites/dirt2.png" id="1_qbaa6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8cujs"]
+texture = ExtResource("1_qbaa6")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tto40"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_8cujs")
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAD///3/AAAAAAAAAAD+//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9//7/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tto40")
