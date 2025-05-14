@@ -1,12 +1,32 @@
-[gd_scene load_steps=3 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=5 format=4 uid="uid://dyfo7mc527ap8"]
 
-[ext_resource type="PackedScene" uid="uid://ce25tihetdkfs" path="res://Scenes/map.tscn" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://c6clfhm3hym65" path="res://Scenes/player.tscn" id="2_8gbba"]
+[ext_resource type="Texture2D" uid="uid://5ol2hffvsoyt" path="res://sprites/dirt2.png" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/character_body_2d.tscn" id="2_bo1nx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
+texture = ExtResource("1_bo1nx")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jjvhh"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
 [node name="Main" type="Node2D"]
 
-[node name="TileMapLayer" parent="." instance=ExtResource("1_bo1nx")]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAEAAAAAAAAAAAACAP//AAAAAAAAAAA=")
+[node name="Tilemap" type="Node2D" parent="."]
 
-[node name="player" parent="." instance=ExtResource("2_8gbba")]
-position = Vector2(-15, -12)
+[node name="Layer 1" type="TileMapLayer" parent="Tilemap"]
+position = Vector2(72, 41)
+tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_jjvhh")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_bo1nx")]
+position = Vector2(208, 156)
+
+[node name="Camera2D" parent="CharacterBody2D" index="2"]
+zoom = Vector2(1.5, 1.5)
+
+[editable path="CharacterBody2D"]
