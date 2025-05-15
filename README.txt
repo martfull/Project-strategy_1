@@ -11,4 +11,4 @@ git checkout master - переходить в гілку master
 git merge hotfix - зливає hotfix до master
 git branch -d hotfix - видаляє гілку hotfix
 
-111
+Dima lox
