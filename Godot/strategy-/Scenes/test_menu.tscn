@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://0prj40d5ho6p"]
+
+[ext_resource type="Script" uid="uid://cavmqmluefo48" path="res://Scripts/test_menu.gd" id="1_racox"]
+
+[node name="test_Menu" type="Node2D"]
+script = ExtResource("1_racox")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 169.0
+offset_top = 29.0
+offset_right = 981.0
+offset_bottom = 209.0
+theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.972549, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0.780392, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 85
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 174.0
+offset_top = 391.0
+offset_right = 986.0
+offset_bottom = 571.0
+theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.972549, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0.796078, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 85
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
