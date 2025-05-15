@@ -1,37 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://0prj40d5ho6p"]
+[gd_scene load_steps=3 format=3 uid="uid://0prj40d5ho6p"]
 
 [ext_resource type="Script" uid="uid://cavmqmluefo48" path="res://Scripts/test_menu.gd" id="1_racox"]
+[ext_resource type="PackedScene" uid="uid://csrxnu0ghhf5f" path="res://Scenes/menu_bg.tscn" id="2_eqg2g"]
 
 [node name="test_Menu" type="Node2D"]
 script = ExtResource("1_racox")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 169.0
-offset_top = 29.0
-offset_right = 981.0
-offset_bottom = 209.0
+offset_left = 240.0
+offset_top = 92.0
+offset_right = 925.0
+offset_bottom = 245.0
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0.972549, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
-theme_override_colors/font_color = Color(0, 0.780392, 0, 1)
+theme_override_colors/font_color = Color(7.70092e-07, 0.762034, 0.497177, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 85
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 174.0
-offset_top = 391.0
-offset_right = 986.0
+offset_left = 241.0
+offset_top = 409.0
+offset_right = 927.0
 offset_bottom = 571.0
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0.972549, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 1, 0, 1)
-theme_override_colors/font_color = Color(0.796078, 0, 0, 1)
+theme_override_colors/font_color = Color(0.551723, 0.386808, 2.88785e-07, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 85
 text = "Quit"
+
+[node name="MenuBG" parent="." instance=ExtResource("2_eqg2g")]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
