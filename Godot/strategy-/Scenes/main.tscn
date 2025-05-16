@@ -33,17 +33,17 @@ scale = Vector2(0.855, 0.855)
 [node name="Sprite2D" parent="CharacterBody2D" index="0"]
 script = null
 
-[node name="Node" type="Node2D" parent="."]
+[node name="Pause" type="Node2D" parent="."]
 script = ExtResource("5_21xkr")
 
-[node name="PauseMenu" type="CanvasLayer" parent="Node"]
+[node name="PauseMenu" type="CanvasLayer" parent="Pause"]
 process_mode = 2
 script = ExtResource("6_6bp64")
 
-[node name="PauseMusic" type="AudioStreamPlayer" parent="Node/PauseMenu"]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="Pause/PauseMenu"]
 stream = SubResource("AudioStreamOggVorbis_jjvhh")
 
-[node name="Panel" type="Panel" parent="Node/PauseMenu"]
+[node name="Panel" type="Panel" parent="Pause/PauseMenu"]
 process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +53,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu/Panel"]
 process_mode = 2
 layout_mode = 0
 offset_left = 438.0
@@ -63,17 +63,17 @@ offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Button" type="Button" parent="Node/PauseMenu/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "продовжити"
 
-[node name="Button2" type="Button" parent="Node/PauseMenu/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "вийти до головного меню"
 
-[connection signal="pressed" from="Node/PauseMenu/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Node/PauseMenu/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/Button" to="Pause" method="_on_button_pressed"]
+[connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/Button2" to="Pause" method="_on_button_2_pressed"]
 
 [editable path="CharacterBody2D"]
