@@ -18,6 +18,8 @@ loop = true
 process_mode = 3
 script = ExtResource("1_8gbba")
 TileScene = ExtResource("2_kry3j")
+width = 5
+height = 14
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
 
@@ -31,6 +33,7 @@ script = null
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 
 [node name="PauseMusic" type="AudioStreamPlayer" parent="PauseMenu"]
 stream = SubResource("AudioStreamOggVorbis_jjvhh")

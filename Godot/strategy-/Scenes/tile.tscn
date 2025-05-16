@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3hjhsr56cai1"]
 
-[ext_resource type="Texture2D" uid="uid://dojia8x8rsjwx" path="res://sprites/icon.svg" id="1_xsjyq"]
+[ext_resource type="Texture2D" uid="uid://hnic8s0vgxoa" path="res://sprites/green_xy.png" id="1_xsjyq"]
 
 [node name="Tile" type="Sprite2D"]
 position = Vector2(46, 38)
