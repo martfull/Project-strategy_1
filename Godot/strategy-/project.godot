@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Strategy"
-run/main_scene="uid://dyfo7mc527ap8"
+run/main_scene="uid://0prj40d5ho6p"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://sprites/icon.svg"
 
