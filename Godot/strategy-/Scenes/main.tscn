@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=8 format=4 uid="uid://dyfo7mc527ap8"]
 
 [ext_resource type="Texture2D" uid="uid://5ol2hffvsoyt" path="res://sprites/dirt2.png" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://dxqu7m2v2khf2" path="res://Scripts/UI/Pause_Menu/main_pause.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/character_body_2d.tscn" id="2_bo1nx"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="3_8gbba"]
+[ext_resource type="AudioStream" uid="uid://xe1r4onx2bxi" path="res://Audio/videoplayback (audio-extractor.net).mp3" id="5_kry3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
 texture = ExtResource("1_bo1nx")
@@ -37,6 +38,9 @@ zoom = Vector2(1.5, 1.5)
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
 script = ExtResource("3_8gbba")
+
+[node name="PauseMusic" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("5_kry3j")
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 process_mode = 2

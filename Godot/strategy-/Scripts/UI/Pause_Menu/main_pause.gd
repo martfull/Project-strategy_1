@@ -10,12 +10,14 @@ func _input(event):
 		
 		
 func resume_game():
+	$PauseMenu/PauseMusic.stop()
 	get_tree().paused = false
 	$PauseMenu.visible = false 	
 	
 	
 func pause_game():
 	get_tree().paused = true
+	$PauseMenu/PauseMusic.play()
 	$PauseMenu.visible = true 	
 	
 	
