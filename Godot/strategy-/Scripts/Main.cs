@@ -7,13 +7,24 @@ public partial class Main : Node2D
 	public PackedScene TileScene{get;set;}
 	[Export]
 	public Vector2 Position{get;set;}
+	[Export]
+	public int width{get;set;}
+	[Export]
+	public int height{get;set;}
 	// Called when the node enters the scene tree for the first time.
 	
 	public override void _Ready()
 	{
 		GD.Print("Tile");
-		SpawnSpire(Position);
-		SpawnSpire(new Vector2(Position.X + 128, Position.Y + 128));
+		for (int h = 0; h < height; h++)
+		{
+			for (int w = 0; w < width; w++)
+			{
+				SpawnSpire(new Vector2(Position.X + 72 * w, Position.Y + 72 * h));
+			}
+		}
+		// SpawnSpire(Position);
+		// SpawnSpire(new Vector2(Position.X + 128, Position.Y + 128));
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
