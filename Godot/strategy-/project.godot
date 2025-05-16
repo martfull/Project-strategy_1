@@ -13,7 +13,7 @@ config_version=5
 config/name="Strategy"
 run/main_scene="uid://dyfo7mc527ap8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [display]
 
@@ -36,5 +36,3 @@ project/assembly_name="Strategy"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
