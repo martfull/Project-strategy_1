@@ -40,9 +40,6 @@ tile_set = SubResource("TileSet_jjvhh")
 process_mode = 1
 position = Vector2(208, 156)
 
-[node name="Camera2D" parent="CharacterBody2D" index="2"]
-zoom = Vector2(1.5, 1.5)
-
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
 script = ExtResource("3_8gbba")
