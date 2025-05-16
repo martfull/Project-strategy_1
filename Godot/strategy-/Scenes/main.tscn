@@ -17,6 +17,7 @@ tile_size = Vector2i(72, 72)
 sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_jjvhh")
 
 [node name="Tilemap" type="Node2D" parent="."]
@@ -27,15 +28,18 @@ tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAA
 tile_set = SubResource("TileSet_jjvhh")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_bo1nx")]
+process_mode = 1
 position = Vector2(208, 156)
 
 [node name="Camera2D" parent="CharacterBody2D" index="2"]
 zoom = Vector2(1.5, 1.5)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
 script = ExtResource("3_8gbba")
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
+process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,19 +47,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+process_mode = 2
 layout_mode = 0
 offset_left = 438.0
 offset_top = 186.0
-offset_right = 735.0
-offset_bottom = 402.0
+offset_right = 742.765
+offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Button" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 text = "продовжити"
 
 [node name="Button2" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 text = "вийти до головного меню"
 
