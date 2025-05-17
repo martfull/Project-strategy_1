@@ -9,75 +9,27 @@ public partial class Main : Node2D
 	[Export]
 	public Vector2 Position{get;set;}
 	[Export]
-	public int width{get;set;}
+	public int Width{get;set;}
 	[Export]
-	public int height{get;set;}
-	// Called when the node enters the scene tree for the first time.
+	public int Height{get;set;}
+	[Export]
+	public PackedScene PlayerScene{get;set;}
+	[Export]
+	public Vector2I PlayerPosition{get;set;}
 	
 	
 	public override void _Ready()
 	{
-
-		int number = 5;
-		string name = "dima";
-		int[] array = new int[3];
-		Gamemap map = new Gamemap();
-		GD.Print("Tile");
-		for (int h = 0; h < height; h++)
-		{
-			for (int w = 0; w < width; w++)
-			{
-				
-				int tileX = w * 72;
-				int tileY = h * 72;
-				Node2D tile = map.CreateTile(tileX,tileY, TileScene);
-				AddChild(tile);
-			}
-		}
-
-		 map.GetTile(1, 1);
-
+		App.Map.CreateMap(Width, Height, TileScene,this);
+		PlayerSprite player = PlayerScene.Instantiate() as PlayerSprite;
+		App.Player  = player;
+		TileSprite playerTile = App.Map.GetTile(player.Coord.X, player.Coord.Y);
+		player.MoveTo(playerTile);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
-	// public void SpawnSpire(Vector2 position) 
-	// {
-	// 	if (TileScene == null)
-	// 	{
-	// 		GD.PrintErr("TileScene is not set. Please assign it in the editor.");
-	// 		return;
-	// 	}
-	//
-	// 	// 1. Instantiate the scene
-	// 	// The Instantiate() method returns a generic Node.
-	// 	Node spireInstance = TileScene.Instantiate();
-	//
-	// 	// 2. Add the instance to the current scene
-	// 	// You can add it as a child of this node, or any other node in the scene.
-	// 	// For example, to add it as a child of the current node:
-	// 	AddChild(spireInstance);
-	//
-	// 	// If you want to add it to the root of the current scene:
-	// 	// GetTree().Root.AddChild(spireInstance);
-	// 	// Or to the current scene's root node (often preferred):
-	// 	// GetTree().CurrentScene.AddChild(spireInstance);
-	//
-	// 	// 3. Set its properties (e.g., position)
-	// 	// You need to cast the instantiated node to its correct type (Node2D, Node3D, or your custom Spire class)
-	// 	// to access type-specific properties like Position.
-	//
-	// 	if (spireInstance is Node2D spireNode2D)
-	// 	{
-	// 		spireNode2D.Position = position;
-	// 		GD.Print($"Spawned Spire (Node2D) at {spireNode2D.Position}");
-	// 	}
-	//
-	// 	else
-	// 	{
-	// 		GD.PrintErr("Spawned spire is not a Node2D. Could not set position directly.");
-	// 	}
-	// }
+	
 }

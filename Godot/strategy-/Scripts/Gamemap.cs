@@ -5,7 +5,21 @@ namespace Strategy.Scripts;
 
 public class Gamemap
 {
-    Dictionary<(int,int), Node2D> tileCoords = new Dictionary<(int,int), Node2D>();
+    private Dictionary<Vector2I, TileSprite> _tileCoords = new Dictionary<Vector2I, TileSprite>();
+    
+    
+    public void CreateMap(int Width, int Height, PackedScene TileScene, Main main)
+    {
+        for (int h = 0; h < Height; h++)
+        {
+            for (int w = 0; w < Width; w++)
+            {
+                Node2D tile = this.CreateTile(w, h, TileScene);
+                main.AddChild(tile);
+            }
+        }
+    }
+    
     public Node2D CreateTile(int x, int y,PackedScene tileScene)
     {
         if (tileScene == null)
@@ -14,15 +28,17 @@ public class Gamemap
             return null;
         }
 
-        Node2D tileInstance = tileScene.Instantiate() as Node2D;
-        tileInstance.Position = new Vector2I(x, y);
-        tileCoords[(x, y)] = tileInstance;
+        TileSprite tileInstance = tileScene.Instantiate<TileSprite>();
+        Vector2I tileCoord = new Vector2I(x, y);
+        tileInstance.SetCoordinatePosition(x,y);
+        _tileCoords[tileCoord] = tileInstance;
         return tileInstance;
     }
 
-    public Node2D GetTile(int x, int y)
+    public TileSprite GetTile(int x, int y)
     {
-        if (tileCoords.TryGetValue((x, y), out Node2D tileInstance))
+        Vector2I coord = new Vector2I(x, y);
+        if (_tileCoords.TryGetValue(coord, out TileSprite tileInstance))
         {
             return tileInstance;
         }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://dyfo7mc527ap8"]
 
 [ext_resource type="Script" uid="uid://cmwdtrp4qsy6k" path="res://Scripts/Main.cs" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/character_body_2d.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/Player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://dxqu7m2v2khf2" path="res://Scripts/UI/Pause_Menu/main_pause.gd" id="5_21xkr"]
@@ -22,23 +22,16 @@ process_mode = 3
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
 script = ExtResource("2_8gbba")
 TileScene = ExtResource("2_kry3j")
-width = 3
-height = 3
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_bo1nx")]
-process_mode = 1
-position = Vector2(208, 156)
-scale = Vector2(0.855, 0.855)
-
-[node name="Sprite2D" parent="CharacterBody2D" index="0"]
-position = Vector2(-80.7017, 7.62939e-06)
-script = null
+Width = 3
+Height = 3
+PlayerScene = ExtResource("2_bo1nx")
 
 [node name="Pause" type="Node2D" parent="."]
 script = ExtResource("5_21xkr")
 
 [node name="PauseMenu" type="CanvasLayer" parent="Pause"]
 process_mode = 2
+visible = false
 script = ExtResource("6_6bp64")
 
 [node name="PauseMusic" type="AudioStreamPlayer" parent="Pause/PauseMenu"]
@@ -76,5 +69,3 @@ text = "вийти до головного меню"
 
 [connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/Button" to="Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/Button2" to="Pause" method="_on_button_2_pressed"]
-
-[editable path="CharacterBody2D"]
