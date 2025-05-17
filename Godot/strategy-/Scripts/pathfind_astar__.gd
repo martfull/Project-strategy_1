@@ -1,4 +1,4 @@
-xtends TileMap
+extends TileMap
 
 enum Tile { OBSTACLE, START_POINT, END_POINT }
 
