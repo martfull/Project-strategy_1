@@ -22,8 +22,8 @@ process_mode = 3
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
 script = ExtResource("2_8gbba")
 TileScene = ExtResource("2_kry3j")
-width = 5
-height = 5
+width = 3
+height = 3
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_bo1nx")]
 process_mode = 1
