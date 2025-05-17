@@ -10,6 +10,5 @@ public partial class PlayerSprite : Sprite2D
     {
         this.Coord = tile.Cood;
         this.Position = tile.Position;
-        
     }
 }
