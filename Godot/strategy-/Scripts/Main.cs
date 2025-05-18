@@ -26,6 +26,7 @@ public partial class Main : Node2D
 		App.Player  = player;
 		TileSprite playerTile = App.Map.GetTile(PlayerPosition.X, PlayerPosition.Y);
 		player.MoveTo(playerTile);
+		
 	}
 	
 
