@@ -22,10 +22,10 @@ public partial class Main : Node2D
 	public override void _Ready()
 	{
 		App.Map.CreateMap(Width, Height, TileScene,this);
-		PlayerSprite player = App.Map.CreatePlayer(PlayerPosition.X, PlayerPosition.Y, PlayerScene, this);
-		App.Player  = player;
-		TileSprite playerTile = App.Map.GetTile(PlayerPosition.X, PlayerPosition.Y);
-		player.MoveTo(playerTile);
+		//PlayerSprite player = App.Map.CreatePlayer(PlayerPosition.X, PlayerPosition.Y, PlayerScene, this);
+		//App.Player  = player;
+		//TileSprite playerTile = App.Map.GetTile(PlayerPosition.X, PlayerPosition.Y);
+		//player.MoveTo(playerTile);
 	}
 	
 
