@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/Player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://dxqu7m2v2khf2" path="res://Scripts/UI/Pause_Menu/main_pause.gd" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scenes/node.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_j531d"]
@@ -27,18 +27,20 @@ Width = 4
 Height = 4
 PlayerPosition = Vector2i(1, 2)
 
-[node name="Pause" type="Node2D" parent="."]
+[node name="UI" type="Node" parent="."]
+
+[node name="Pausa" type="Node" parent="UI"]
 script = ExtResource("5_21xkr")
 
-[node name="PauseMenu" type="CanvasLayer" parent="Pause"]
+[node name="PauseMenu" type="CanvasLayer" parent="UI/Pausa"]
 process_mode = 2
 visible = false
 script = ExtResource("6_6bp64")
 
-[node name="PauseMusic" type="AudioStreamPlayer" parent="Pause/PauseMenu"]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="UI/Pausa/PauseMenu"]
 stream = SubResource("AudioStreamOggVorbis_jjvhh")
 
-[node name="Panel" type="Panel" parent="Pause/PauseMenu"]
+[node name="Panel" type="Panel" parent="UI/Pausa/PauseMenu"]
 process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +50,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pausa/PauseMenu/Panel"]
 process_mode = 2
 layout_mode = 0
 offset_left = 438.0
@@ -58,15 +60,15 @@ offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Button" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "продовжити"
 
-[node name="Button2" type="Button" parent="Pause/PauseMenu/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "вийти до головного меню"
 
-[connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/Button" to="Pause" method="_on_button_pressed"]
-[connection signal="pressed" from="Pause/PauseMenu/Panel/VBoxContainer/Button2" to="Pause" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Button" to="UI/Pausa" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Button2" to="UI/Pausa" method="_on_button_2_pressed"]
