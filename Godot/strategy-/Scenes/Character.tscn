@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://yb0my3bypx2b"]
+
+[ext_resource type="Script" uid="uid://cohha3v5wk1dq" path="res://Scripts/GD/player.gd" id="1_677pu"]
+[ext_resource type="Texture2D" uid="uid://c1qh8ppyawyso" path="res://sprites/peasant-attack1.png" id="2_v7dgu"]
+[ext_resource type="Script" uid="uid://b80n23ratsceg" path="res://Scripts/GD/unit_spawner.gd" id="3_677pu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgqql"]
+
+[sub_resource type="PackedScene" id="PackedScene_677pu"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("player", "script", "CharacterBody2D", "CollisionShape2D", "position", "shape", "Sprite2D", "texture", "centered", "Node", "unit_scene"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 2, 4, 1, 5, 2, 0, 0, 0, 6, 6, -1, 2, 7, 3, 8, 4, 0, 0, 0, 9, 9, -1, 2, 1, 5, 10, 6, 0),
+"variants": [ExtResource("1_677pu"), Vector2(36, 41), SubResource("CapsuleShape2D_vgqql"), ExtResource("2_v7dgu"), false, ExtResource("3_677pu"), SubResource("PackedScene_677pu")],
+"version": 3
+}
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_677pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 41)
+shape = SubResource("CapsuleShape2D_vgqql")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v7dgu")
+centered = false
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_677pu")
+unit_scene = SubResource("PackedScene_677pu")

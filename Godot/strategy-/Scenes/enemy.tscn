@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgi40iqj5q8no"]
+
+[ext_resource type="Texture2D" uid="uid://cvbu2pi0vt7qs" path="res://sprites/fire-dragon-flying-1.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://kkff0uluo8p6" path="res://Scripts/C#/PlayerSprite.cs" id="2_1f0kj"]
+
+[node name="Enemy" type="Sprite2D"]
+texture = ExtResource("1_7k104")
+centered = false
+script = ExtResource("2_1f0kj")

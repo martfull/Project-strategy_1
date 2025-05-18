@@ -16,7 +16,7 @@ public partial class PlayerSprite : Sprite2D
     {
         int TileX = x * Width;
         int TileY = y * Height;
-		
+        
         Position = new Vector2I(TileX, TileY);
         Coord = new Vector2I(x,y);
     }
