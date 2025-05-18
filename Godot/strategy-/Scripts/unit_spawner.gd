@@ -6,7 +6,7 @@ func _ready() -> void:
 	
 	
 func spawn_unit(pos: Vector2):
-	var unit = unit_scene.instantiate() as Hero
+	var unit = unit_scene.instantiate() as Player
 	unit.position = pos
 	add_child(unit)
 	var stats = unit.stats()
