@@ -8,14 +8,15 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="unit" type="Sprite2D" parent="."]
+top_level = true
 texture = ExtResource("2_88kja")
 script = ExtResource("2_it8n0")
 
-[node name="command" type="Sprite2D" parent="unit"]
+[node name="team_red" type="Sprite2D" parent="unit"]
 show_behind_parent = true
 position = Vector2(0, 20)
 texture = ExtResource("3_dewec")
 
-[node name="status_move" type="Sprite2D" parent="unit"]
+[node name="status_move_ready" type="Sprite2D" parent="unit"]
 position = Vector2(-18, -30)
 texture = ExtResource("4_5ixxa")
