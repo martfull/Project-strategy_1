@@ -6,6 +6,7 @@ namespace Strategy.Scripts;
 public class Gamemap
 {
     private Dictionary<Vector2I, TileSprite> _tileCoords = new Dictionary<Vector2I, TileSprite>();
+    private Dictionary<Vector2I, PlayerSprite> _playerCoords = new Dictionary<Vector2I, PlayerSprite>();
     
     
     public void CreateMap(int Width, int Height, PackedScene TileScene, Main main)
@@ -35,6 +36,21 @@ public class Gamemap
         return tileInstance;
     }
 
+    public Node2D CreatePlayer(int x, int y,PackedScene playerScene, Main main)
+    {
+        if (playerScene == null)
+        {
+            GD.PrintErr("TileScene is not set. Please assign it in the editor.");
+            return null;
+        }
+
+        PlayerSprite playerInstance = playerScene.Instantiate<PlayerSprite>();
+        Vector2I playerCoord = new Vector2I(x, y);
+        playerInstance.SetCoordinatePosition(x,y);
+        _playerCoords[playerCoord] = playerInstance;
+        main.AddChild(playerInstance);
+        return playerInstance;
+    }
     public TileSprite GetTile(int x, int y)
     {
         Vector2I coord = new Vector2I(x, y);

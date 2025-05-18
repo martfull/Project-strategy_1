@@ -34,8 +34,9 @@ public partial class TileSprite : Sprite2D
 				// GetLocalMousePosition() gives the mouse position relative to this origin.
 				if (GetRect().HasPoint(GetLocalMousePosition()))
 				{
-					GD.Print($"{Position} was clicked (within its bounding rectangle)!");
+					GD.Print($"{Cood} was clicked (within its bounding rectangle)!");
 					// Your click logic here
+					
 					App.Player.MoveTo(this);
 				}
 			}

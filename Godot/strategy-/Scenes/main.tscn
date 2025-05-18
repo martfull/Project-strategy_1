@@ -22,9 +22,10 @@ process_mode = 3
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
 script = ExtResource("2_8gbba")
 TileScene = ExtResource("2_kry3j")
-Width = 3
-Height = 3
 PlayerScene = ExtResource("2_bo1nx")
+Width = 4
+Height = 4
+PlayerPosition = Vector2i(1, 2)
 
 [node name="Pause" type="Node2D" parent="."]
 script = ExtResource("5_21xkr")
