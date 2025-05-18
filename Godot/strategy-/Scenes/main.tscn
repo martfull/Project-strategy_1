@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=10 format=4 uid="uid://dyfo7mc527ap8"]
 
 [ext_resource type="Script" uid="uid://cmwdtrp4qsy6k" path="res://Scripts/Main.cs" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/Player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cgi40iqj5q8no" path="res://Scenes/enemy.tscn" id="5_6bp64"]
 [ext_resource type="Script" path="res://Scenes/node.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
 
@@ -23,9 +24,11 @@ process_mode = 3
 script = ExtResource("2_8gbba")
 TileScene = ExtResource("2_kry3j")
 PlayerScene = ExtResource("2_bo1nx")
-Width = 10
-Height = 10
-PlayerPosition = Vector2i(6, 6)
+EnemyScene = ExtResource("5_6bp64")
+Width = 5
+Height = 5
+PlayerPosition = Vector2i(2, 2)
+EnemyPosition = Vector2i(4, 4)
 
 [node name="UI" type="Node" parent="."]
 
