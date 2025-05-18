@@ -2,19 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://c1qh8ppyawyso" path="res://sprites/peasant-attack1.png" id="2_88kja"]
 [ext_resource type="Script" uid="uid://kkff0uluo8p6" path="res://Scripts/PlayerSprite.cs" id="2_it8n0"]
-[ext_resource type="Texture2D" uid="uid://dclrbk2wgc118" path="res://sprites/image/Спрайт-0017.png" id="3_dewec"]
+[ext_resource type="Texture2D" uid="uid://cvfrxofr7bveq" path="res://sprites/image/Спрайт-0014.png" id="3_dewec"]
 [ext_resource type="Texture2D" uid="uid://b22c87l8w3vd2" path="res://sprites/image/Спрайт-0009.png" id="4_5ixxa"]
 
-[node name="Player" type="Sprite2D"]
-position = Vector2(23, 34)
+[node name="Node2D" type="Node2D"]
+
+[node name="unit" type="Sprite2D" parent="."]
 texture = ExtResource("2_88kja")
 script = ExtResource("2_it8n0")
 
-[node name="command" type="Sprite2D" parent="."]
+[node name="command" type="Sprite2D" parent="unit"]
 show_behind_parent = true
-position = Vector2(1, 19)
+position = Vector2(0, 20)
 texture = ExtResource("3_dewec")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-16, -26)
+[node name="status_move" type="Sprite2D" parent="unit"]
+position = Vector2(-18, -30)
 texture = ExtResource("4_5ixxa")
