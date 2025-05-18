@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/node.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
-[ext_resource type="Script" uid="uid://b80n23ratsceg" path="res://Scenes/unit_spawner.gd" id="7_6bp64"]
+[ext_resource type="Script" uid="uid://b80n23ratsceg" path="res://Scripts/unit_spawner.gd" id="7_6bp64"]
 [ext_resource type="Texture2D" uid="uid://dieeauraoy0tf" path="res://sprites/image/Спрайт-0020.png" id="7_344ge"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_j531d"]
@@ -61,15 +61,15 @@ offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Button" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="Resume" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
-text = "продовжити"
+text = "Resume"
 
-[node name="Button2" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
-text = "вийти до головного меню"
+text = "Main Menu"
 
 [node name="MainUI" type="CanvasLayer" parent="UI/Pausa/PauseMenu"]
 
@@ -98,5 +98,5 @@ text = "HP:"
 [node name="UnitSpawner" type="Node" parent="."]
 script = ExtResource("7_6bp64")
 
-[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Button" to="UI/Pausa" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Button2" to="UI/Pausa" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Resume" to="UI/Pausa" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Main Menu" to="UI/Pausa" method="_on_main_menu_pressed"]

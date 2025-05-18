@@ -12,6 +12,3 @@ func _process(delta):
 	else:
 		red.visible = false  
 		blue.visible = true   
-
-
-	
