@@ -1,14 +1,25 @@
-extends Node2D
+class_name Unit extends CharacterBody2D
 
-@export var TrueRed_or_FalseBlue:bool = true
+var health: int = 100
+var move_speed: int = 4
+var damage: int = 5
+var first_attack: String = "None"
+var second_attack: String = "None"
+var unit_type: String = "None"
 
-@onready var red = $unit/team_red
-@onready var blue = $unit/team_blue
+func initialise(health: int = 0, move_speed: int= 0, damage: int= 0, first_attack: String = "None", second_attack: String = "None", unit_type: String = "None"):
+	self.health = health
+	self.move_speed = move_speed
+	self.damage = damage
+	self.first_attack = first_attack
+	self.second_attack = second_attack
+	self.unit_type = unit_type
 
-func _process(delta):
-	if TrueRed_or_FalseBlue == true:
-		red.visible = true   
-		blue.visible = false  
-	else:
-		red.visible = false  
-		blue.visible = true   
+func stats_now():
+	var stats = [self.health, self.move_speed, self.damage, self.first_attack, self.second_attack, self.unit_type]
+	return stats
+	
+func die(health):
+	if health <= 0:
+		pass
+	

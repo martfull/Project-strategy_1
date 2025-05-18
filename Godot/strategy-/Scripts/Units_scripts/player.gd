@@ -1,4 +1,4 @@
-class_name Hero extends Unit
+class_name Player extends Unit
 
 func stats() -> Array:
 	var health: int = 300
