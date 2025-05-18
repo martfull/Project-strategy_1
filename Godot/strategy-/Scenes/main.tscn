@@ -23,9 +23,9 @@ process_mode = 3
 script = ExtResource("2_8gbba")
 TileScene = ExtResource("2_kry3j")
 PlayerScene = ExtResource("2_bo1nx")
-Width = 10
-Height = 10
-PlayerPosition = Vector2i(6, 6)
+Width = 5
+Height = 5
+PlayerPosition = Vector2i(1, 1)
 
 [node name="UI" type="Node" parent="."]
 
