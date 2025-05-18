@@ -22,12 +22,12 @@ public partial class Main : Node2D
 	public override void _Ready()
 	{
 		App.Map.CreateMap(Width, Height, TileScene,this);
-		App.Map.CreatePlayer(PlayerPosition.X, PlayerPosition.Y, PlayerScene, this);
-		PlayerSprite player = PlayerScene.Instantiate() as PlayerSprite;
+		PlayerSprite player = App.Map.CreatePlayer(PlayerPosition.X, PlayerPosition.Y, PlayerScene, this);
 		App.Player  = player;
-		TileSprite playerTile = App.Map.GetTile(player.Coord.X, player.Coord.Y);
+		TileSprite playerTile = App.Map.GetTile(PlayerPosition.X, PlayerPosition.Y);
 		player.MoveTo(playerTile);
 	}
+	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

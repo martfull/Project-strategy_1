@@ -36,7 +36,7 @@ public class Gamemap
         return tileInstance;
     }
 
-    public Node2D CreatePlayer(int x, int y,PackedScene playerScene, Main main)
+    public PlayerSprite CreatePlayer(int x, int y,PackedScene playerScene, Main main)
     {
         if (playerScene == null)
         {
@@ -46,7 +46,7 @@ public class Gamemap
 
         PlayerSprite playerInstance = playerScene.Instantiate<PlayerSprite>();
         Vector2I playerCoord = new Vector2I(x, y);
-        playerInstance.SetCoordinatePosition(x,y);
+        // playerInstance.SetCoordinatePosition(x,y);
         _playerCoords[playerCoord] = playerInstance;
         main.AddChild(playerInstance);
         return playerInstance;

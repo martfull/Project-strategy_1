@@ -36,7 +36,6 @@ public partial class TileSprite : Sprite2D
 				{
 					GD.Print($"{Cood} was clicked (within its bounding rectangle)!");
 					// Your click logic here
-					
 					App.Player.MoveTo(this);
 				}
 			}

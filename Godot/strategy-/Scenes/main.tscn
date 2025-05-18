@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b63i8xffne6lj" path="res://Scenes/Player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scenes/node.gd" id="5_21xkr"]
+[ext_resource type="Script" path="res://Scenes/node.gd" id="5_21xkr"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_j531d"]
@@ -23,9 +23,9 @@ process_mode = 3
 script = ExtResource("2_8gbba")
 TileScene = ExtResource("2_kry3j")
 PlayerScene = ExtResource("2_bo1nx")
-Width = 4
-Height = 4
-PlayerPosition = Vector2i(1, 2)
+Width = 10
+Height = 10
+PlayerPosition = Vector2i(6, 6)
 
 [node name="UI" type="Node" parent="."]
 
@@ -34,7 +34,6 @@ script = ExtResource("5_21xkr")
 
 [node name="PauseMenu" type="CanvasLayer" parent="UI/Pausa"]
 process_mode = 2
-visible = false
 script = ExtResource("6_6bp64")
 
 [node name="PauseMusic" type="AudioStreamPlayer" parent="UI/Pausa/PauseMenu"]
