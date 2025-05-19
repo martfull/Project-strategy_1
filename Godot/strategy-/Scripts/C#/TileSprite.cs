@@ -47,6 +47,14 @@ public partial class TileSprite : Sprite2D
 					App.GameControll.MovePlayer(this);
 				}
 			}
+
+			if (mouseButtonEvent.Pressed && mouseButtonEvent.ButtonIndex == MouseButton.Right)
+			{
+				if (GetRect().HasPoint(GetLocalMousePosition()))
+				{
+					GD.Print($"Right Click :{Cood}  Tile position:{Position}");
+				}
+			}
 		}
 	}
 

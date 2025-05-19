@@ -15,10 +15,12 @@ public partial class UI : Node
 		if (App.GameControll.IsPlayer1Turn == true)
 		{
 			TurnLabel.Text = "Red";
+			TurnLabel.AddThemeColorOverride("font_red", new Color(1, 0, 0));
 		}
-		else
+		if (App.GameControll.IsPlayer1Turn == false)
 		{
 			TurnLabel.Text = "Blue";
+			TurnLabel.AddThemeColorOverride("font_blue", new Color(0, 0, 1));
 		}
 	}
 }

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c221xwmr7nybr" path="res://Scenes/Player1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
-[ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/GD/node.gd" id="5_21xkr"]
+[ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/UI/Pause_Menu/node.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://d0s8r7v2ldrxm" path="res://Scenes/Player2.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://g8xvnbgw7uic" path="res://Scripts/C#/UI.cs" id="7_6bp64"]
@@ -104,10 +104,9 @@ offset_bottom = 569.5
 text = "HP:"
 
 [node name="Turn" type="Label" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
-layout_mode = 0
 offset_left = 8.0
 offset_top = 405.5
-offset_right = 48.0
+offset_right = 50.0
 offset_bottom = 454.5
 text = "Nope
 "
