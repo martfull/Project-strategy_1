@@ -1,16 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c221xwmr7nybr"]
+[gd_scene load_steps=2 format=3 uid="uid://do8jbh533433e"]
 
-[ext_resource type="Script" uid="uid://cohha3v5wk1dq" path="res://Scripts/Units_scripts/player.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://c1qh8ppyawyso" path="res://sprites/peasant-attack1.png" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://dsfwlx3qdsdcd" path="res://Scenes/player.gd" id="1_v0iea"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgqql"]
-
-[node name="player" type="CharacterBody2D"]
-script = ExtResource("1_kyqiw")
-metadata/_custom_type_script = "uid://c5ml4gbt2uhuy"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_vgqql")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6t5aa")
+[node name="player" type="Node"]
+script = ExtResource("1_v0iea")
