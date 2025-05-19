@@ -7,25 +7,50 @@ var attack1_type: String = "None"
 var attack2_type: String = "None"
 var damage1: int = 1
 var damage2: int = 1
-var name_attack1: String = "None"
 var number_attacks1: int = 1
 var number_attacks2: int = 1
+var name_attack1: String = "None"
 var name_attack2: String = "None"
 var texture: String = "None"
 var unit_type: String = "None"
 
-func initialise(health: int = 0, move_speed: int= 0, damage: int= 0, first_attack: String = "None", 
-second_attack: String = "None",texture: String = "None", unit_type: String = "None"):
+func initialise(health: int = 0, move_speed: int= 0,
+ evasion: int = 0 , attack1_type: String = "None",
+attack2_type: String = "None", damage1: int = 1, 
+damage2: int = 1, number_attacks1: int = 1,
+number_attacks2: int = 1, name_attack1: String = "None",
+name_attack2: String = "None", 
+ texture: String = "None",unit_type: String = "None"):
 	self.health = health
 	self.move_speed = move_speed
-	self.damage = damage
-	self.first_attack = first_attack
-	self.second_attack = second_attack
+	self.evasion = evasion
+	self.attack1_type = attack1_type
+	self.attack2_type = attack2_type
+	self.damage1 = damage1
+	self.damage2 = damage2
+	self.number_attacks1 = number_attacks1
+	self.number_attacks2 = number_attacks2
+	self.name_attack1 = name_attack1
+	self.name_attack2 = name_attack2
 	self.texture = texture
 	self.unit_type = unit_type
 
 func stats_now():
-	var stats = [self.health, self.move_speed, self.damage, self.first_attack, self.second_attack, self.texture, self.unit_type]
+	var stats = [
+		self.health,
+		self.move_speed,
+		self.evasion,
+		self.attack1_type,
+		self.attack2_type,
+		self.damage1,
+		self.damage2,
+		self.number_attacks1,
+		self.number_attacks2,
+		self.name_attack1,
+		self.name_attack2,
+		self.texture,
+		self.unit_type
+	]
 	return stats
 	
 func die(health):
