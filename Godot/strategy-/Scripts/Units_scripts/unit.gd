@@ -1,10 +1,16 @@
 class_name Unit extends CharacterBody2D
 
 var health: int = 100
-var move_speed: int = 4
-var damage: int = 5
-var first_attack: String = "None"
-var second_attack: String = "None"
+var move_speed: int = 1
+var evasion: int = 10
+var attack1_type: String = "None"
+var attack2_type: String = "None"
+var damage1: int = 1
+var damage2: int = 1
+var name_attack1: String = "None"
+var number_attacks1: int = 1
+var number_attacks2: int = 1
+var name_attack2: String = "None"
 var texture: String = "None"
 var unit_type: String = "None"
 
@@ -28,6 +34,9 @@ func die(health):
 		return true	
 	else:
 		return false
+		
+func set_die(unit):
+	unit.queue_free()
 		
 	
 func taken_damage(hp: int, damage: int):
