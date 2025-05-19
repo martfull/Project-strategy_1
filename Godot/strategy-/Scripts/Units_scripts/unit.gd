@@ -49,25 +49,24 @@ func initialise(
 	self.texture = texture
 	self.unit_type = unit_type
 
-func stats_now():
-	var stats = [
-		self.health,
-		self.move_speed,
-		self.evasion,
-		
-		self.attack1_type,
-		self.attack2_type,
-		self.damage1,
-		self.damage2,
-		self.number_attacks1,
-		self.number_attacks2,
-		self.name_attack1,
-		self.name_attack2,
-		
-		self.texture,
-		self.unit_type
-	]
-	return stats
+func stats_now() -> Dictionary:
+	return {
+		"health": self.health,
+		"move_speed": self.move_speed,
+		"evasion": self.evasion,
+
+		"attack1_type": self.attack1_type,
+		"attack2_type": self.attack2_type,
+		"damage1": self.damage1,
+		"damage2": self.damage2,
+		"number_attacks1": self.number_attacks1,
+		"number_attacks2": self.number_attacks2,
+		"name_attack1": self.name_attack1,
+		"name_attack2": self.name_attack2,
+
+		"texture": self.texture,
+		"unit_type": self.unit_type
+	}
 	
 func die(health):
 	if health <= 0:

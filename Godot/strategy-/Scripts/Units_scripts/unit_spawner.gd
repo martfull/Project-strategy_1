@@ -32,4 +32,5 @@ func spawn_unit(pos: Vector2):
 	$"../UI/MainUI/TextureRect/player_icon".activate_icon(stats["texture"])
 	
 	print(unit.stats_now())
-	
+	unit.health = 29
+	print(unit.stats_now())	
