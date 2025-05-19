@@ -1,5 +1,5 @@
 extends Label
 
-func  setHP(hp):
-	text = "HP: " + str(hp)
+func  setHP(hp, max_hp):
+	text = "HP: " + str(hp) + "/" + str(max_hp)
 	

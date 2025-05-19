@@ -11,9 +11,9 @@ func spawn_unit(pos: Vector2):
 	add_child(unit)
 	var stats = unit.stats()
 	unit.initialise(stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], stats[6])
-	$"../UI/MainUI/TextureRect/hp_bar".setHP(unit.health)
-	var sn = unit.stats_now()
-	$"../UI/MainUI/TextureRect/mp_bar".setMP(sn[1], unit.move_speed)
+	$"../UI/MainUI/TextureRect/hp_bar".setHP(unit.health, stats[0])
+	$"../UI/MainUI/TextureRect/mp_bar".setMP(unit.move_speed, stats[1])
 	$"../UI/MainUI/TextureRect/player_icon".activate_icon(stats[5])
+	
 	print(unit.stats_now())
 	

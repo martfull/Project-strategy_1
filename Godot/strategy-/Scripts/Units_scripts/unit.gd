@@ -8,7 +8,8 @@ var second_attack: String = "None"
 var texture: String = "None"
 var unit_type: String = "None"
 
-func initialise(health: int = 0, move_speed: int= 0, damage: int= 0, first_attack: String = "None", second_attack: String = "None",texture: String = "None", unit_type: String = "None"):
+func initialise(health: int = 0, move_speed: int= 0, damage: int= 0, first_attack: String = "None", 
+second_attack: String = "None",texture: String = "None", unit_type: String = "None"):
 	self.health = health
 	self.move_speed = move_speed
 	self.damage = damage
@@ -23,16 +24,26 @@ func stats_now():
 	
 func die(health):
 	if health <= 0:
-		pass
+		print("есть пробитие")		
+		return true	
+	else:
+		return false
 		
+	
 func taken_damage(hp: int, damage: int):
 	hp -= damage
-	return hp
+	if die(hp) == false:
+		print("не почуствовав")
+		return hp
+	else: 
+		return -1
 	
 func use_mp(mp:int, cost: int):
 	mp -= cost
-	return(mp)
-	
+	if mp >= 0:
+		return(mp)
+	else:
+		print ("cant move")
 
 	
 
