@@ -16,38 +16,22 @@ var name_attack2: String = "None"
 var texture: String = "None"
 var unit_type: String = "None"
 
-func initialise(
-	health: int = 0,
-	move_speed: int = 0,
-	evasion: int = 0,
+func initialise(stats: Dictionary) -> void:
+	self.health = stats.get("health", 0)
+	self.move_speed = stats.get("move_speed", 0)
+	self.evasion = stats.get("evasion", 0)
 
-	attack1_type: String = "None",
-	attack2_type: String = "None",
-	damage1: int = 1,
-	damage2: int = 1,
-	number_attacks1: int = 1,
-	number_attacks2: int = 1,
-	name_attack1: String = "None",
-	name_attack2: String = "None",
+	self.attack1_type = stats.get("attack1_type", "None")
+	self.attack2_type = stats.get("attack2_type", "None")
+	self.damage1 = stats.get("damage1", 1)
+	self.damage2 = stats.get("damage2", 1)
+	self.number_attacks1 = stats.get("number_attacks1", 1)
+	self.number_attacks2 = stats.get("number_attacks2", 1)
+	self.name_attack1 = stats.get("name_attack1", "None")
+	self.name_attack2 = stats.get("name_attack2", "None")
 
-	texture: String = "None",
-	unit_type: String = "None"
-) -> void:
-	self.health = health
-	self.move_speed = move_speed
-	self.evasion = evasion
-	
-	self.attack1_type = attack1_type
-	self.attack2_type = attack2_type
-	self.damage1 = damage1
-	self.damage2 = damage2
-	self.number_attacks1 = number_attacks1
-	self.number_attacks2 = number_attacks2
-	self.name_attack1 = name_attack1
-	self.name_attack2 = name_attack2
-	
-	self.texture = texture
-	self.unit_type = unit_type
+	self.texture = stats.get("texture", "None")
+	self.unit_type = stats.get("unit_type", "None")
 
 func stats_now() -> Dictionary:
 	return {
@@ -89,7 +73,7 @@ func taken_damage(hp: int, damage: int):
 	
 func use_mp(mp:int, cost: int):
 	mp -= cost
-	if mp >= 0:
+	if mp >= 0:		
 		return(mp)
 	else:
 		print ("cant move")
