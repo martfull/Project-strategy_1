@@ -1,7 +1,5 @@
 class_name Main_Unit extends Unit
 
-
-
 func stats() -> Dictionary:
 	return {
 		"health": 300,

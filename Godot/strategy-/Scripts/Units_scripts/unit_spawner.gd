@@ -10,9 +10,9 @@ func spawn_unit(pos: Vector2):
 	unit.position = pos
 	add_child(unit)
 	unit.initialise(unit.stats())
-	$"../UI/MainUI/TextureRect/hp_bar".setHP(unit.health, unit.stats()["health"])
-	$"../UI/MainUI/TextureRect/mp_bar".setMP(unit.move_speed, unit.stats()["move_speed"])
-	$"../UI/MainUI/TextureRect/player_icon".activate_icon(unit.stats()["texture"])
+	$"../TileMapLayer/UI/PlayerUI/MainUI/TextureRect/hp_bar".setHP(unit.health, unit.stats()["health"])
+	$"../TileMapLayer/UI/PlayerUI/MainUI/TextureRect/mp_bar".setMP(unit.move_speed, unit.stats()["move_speed"])
+	$"../TileMapLayer/UI/PlayerUI/MainUI/TextureRect/player_icon".activate_icon(unit.stats()["texture"])
 	
 	print(unit.stats_now())
 	unit.health = 29

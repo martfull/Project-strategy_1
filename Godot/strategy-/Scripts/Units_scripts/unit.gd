@@ -17,21 +17,21 @@ var texture: String = "None"
 var unit_type: String = "None"
 
 func initialise(stats: Dictionary) -> void:
-	self.health = stats.get("health", 0)
-	self.move_speed = stats.get("move_speed", 0)
-	self.evasion = stats.get("evasion", 0)
+	self.health = stats.get("health")
+	self.move_speed = stats.get("move_speed")
+	self.evasion = stats.get("evasion")
 
-	self.attack1_type = stats.get("attack1_type", "None")
-	self.attack2_type = stats.get("attack2_type", "None")
-	self.damage1 = stats.get("damage1", 1)
-	self.damage2 = stats.get("damage2", 1)
-	self.number_attacks1 = stats.get("number_attacks1", 1)
-	self.number_attacks2 = stats.get("number_attacks2", 1)
-	self.name_attack1 = stats.get("name_attack1", "None")
-	self.name_attack2 = stats.get("name_attack2", "None")
+	self.attack1_type = stats.get("attack1_type")
+	self.attack2_type = stats.get("attack2_type")
+	self.damage1 = stats.get("damage1")
+	self.damage2 = stats.get("damage2")
+	self.number_attacks1 = stats.get("number_attacks1")
+	self.number_attacks2 = stats.get("number_attacks2")
+	self.name_attack1 = stats.get("name_attack1")
+	self.name_attack2 = stats.get("name_attack2")
 
-	self.texture = stats.get("texture", "None")
-	self.unit_type = stats.get("unit_type", "None")
+	self.texture = stats.get("texture")
+	self.unit_type = stats.get("unit_type")
 
 func stats_now() -> Dictionary:
 	return {
