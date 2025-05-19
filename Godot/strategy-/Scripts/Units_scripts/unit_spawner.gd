@@ -14,6 +14,7 @@ func spawn_unit(pos: Vector2):
 		stats["health"],
 		stats["move_speed"],
 		stats["evasion"],
+		
 		stats["attack1_type"],
 		stats["attack2_type"],
 		stats["damage1"],
@@ -22,6 +23,7 @@ func spawn_unit(pos: Vector2):
 		stats["number_attacks2"],
 		stats["name_attack1"],
 		stats["name_attack2"],
+		
 		stats["texture"],
 		stats["unit_type"]
 	)
