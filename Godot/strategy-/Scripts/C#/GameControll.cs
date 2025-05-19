@@ -8,13 +8,13 @@ public class GameControll
     public Vector2I Player1Coord;
     public PlayerSprite Player2;
     public Vector2I Player2Coord;
-    public bool IsPlayer1Turn;
+    public bool IsPlayer1Turn = true;
+    
     public GameControll() {}
-    public GameControll(PlayerSprite player1, PlayerSprite player2, Vector2I Player1Coord, Vector2I Player2Coord, bool isPlayer1Turn)
+    public GameControll(PlayerSprite player1, PlayerSprite player2, Vector2I Player1Coord, Vector2I Player2Coord)
     {
         this.Player1 = player1;
         this.Player2 = player2;
-        this.IsPlayer1Turn = isPlayer1Turn;
         this.Player1Coord = Player1Coord;
         this.Player2Coord = Player2Coord;
     }

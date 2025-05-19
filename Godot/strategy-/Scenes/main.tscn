@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=13 format=4 uid="uid://dyfo7mc527ap8"]
 
 [ext_resource type="Script" uid="uid://cmwdtrp4qsy6k" path="res://Scripts/C#/Main.cs" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c221xwmr7nybr" path="res://Scenes/Player1.tscn" id="2_bo1nx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/GD/node.gd" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://d0s8r7v2ldrxm" path="res://Scenes/Player2.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://g8xvnbgw7uic" path="res://Scripts/C#/UI.cs" id="7_6bp64"]
 [ext_resource type="Texture2D" uid="uid://dieeauraoy0tf" path="res://sprites/image/Спрайт-0020.png" id="7_344ge"]
 
 [sub_resource type="OggPacketSequence" id="OggPacketSequence_j531d"]
@@ -17,6 +18,8 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_jjvhh"]
 packet_sequence = SubResource("OggPacketSequence_j531d")
 loop = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_344ge"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -31,20 +34,20 @@ Height = 10
 Player1Position = Vector2i(2, 2)
 Player2Position = Vector2i(4, 4)
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Node" parent="TileMapLayer"]
 
-[node name="Pausa" type="Node" parent="UI"]
+[node name="Pausa" type="Node" parent="TileMapLayer/UI"]
 script = ExtResource("5_21xkr")
 
-[node name="PauseMenu" type="CanvasLayer" parent="UI/Pausa"]
+[node name="PauseMenu" type="CanvasLayer" parent="TileMapLayer/UI/Pausa"]
 process_mode = 2
 visible = false
 script = ExtResource("6_6bp64")
 
-[node name="PauseMusic" type="AudioStreamPlayer" parent="UI/Pausa/PauseMenu"]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="TileMapLayer/UI/Pausa/PauseMenu"]
 stream = SubResource("AudioStreamOggVorbis_jjvhh")
 
-[node name="Panel" type="Panel" parent="UI/Pausa/PauseMenu"]
+[node name="Panel" type="Panel" parent="TileMapLayer/UI/Pausa/PauseMenu"]
 process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +57,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pausa/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TileMapLayer/UI/Pausa/PauseMenu/Panel"]
 process_mode = 2
 layout_mode = 0
 offset_left = 438.0
@@ -64,33 +67,35 @@ offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Button" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "продовжити"
 
-[node name="Button2" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "вийти до головного меню"
 
-[node name="MainUI" type="CanvasLayer" parent="UI/Pausa/PauseMenu"]
+[node name="PlayerUI" type="Node" parent="TileMapLayer/UI" node_paths=PackedStringArray("TurnLabel")]
+script = ExtResource("7_6bp64")
+TurnLabel = NodePath("MainUI/TextureRect/Turn")
 
-[node name="TextureRect" type="TextureRect" parent="UI/Pausa/PauseMenu/MainUI"]
-anchors_preset = 6
+[node name="MainUI" type="CanvasLayer" parent="TileMapLayer/UI/PlayerUI"]
+
+[node name="TextureRect" type="TextureRect" parent="TileMapLayer/UI/PlayerUI/MainUI"]
+anchors_preset = 11
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -301.0
-offset_top = -718.5
-offset_right = 61.0
-offset_bottom = 718.5
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -394.5
+offset_bottom = 394.5
 grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("7_344ge")
 
-[node name="Label" type="Label" parent="UI/Pausa/PauseMenu/MainUI/TextureRect"]
+[node name="Label" type="Label" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 538.5
@@ -98,7 +103,17 @@ offset_right = 225.0
 offset_bottom = 569.5
 text = "HP:"
 
+[node name="Turn" type="Label" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 405.5
+offset_right = 48.0
+offset_bottom = 454.5
+text = "Nope
+"
+label_settings = SubResource("LabelSettings_344ge")
+
 [node name="UnitSpawner" type="Node" parent="."]
 
-[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Button" to="UI/Pausa" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/Button2" to="UI/Pausa" method="_on_button_2_pressed"]
+[connection signal="pressed" from="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer/Button" to="TileMapLayer/UI/Pausa" method="_on_button_pressed"]
+[connection signal="pressed" from="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer/Button2" to="TileMapLayer/UI/Pausa" method="_on_button_2_pressed"]
