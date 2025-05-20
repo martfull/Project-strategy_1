@@ -140,6 +140,7 @@ script = ExtResource("12_fdnlq")
 
 [node name="UnitSpawner" type="Node" parent="."]
 script = ExtResource("12_jkdf5")
+unit_scene = null
 
 [connection signal="pressed" from="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer/resume" to="TileMapLayer/UI/Pausa" method="_on_resume_pressed"]
 [connection signal="pressed" from="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer/menu" to="TileMapLayer/UI/Pausa" method="_on_menu_pressed"]
