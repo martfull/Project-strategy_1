@@ -1,16 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=11 format=4 uid="uid://dyfo7mc527ap8"]
 
-[ext_resource type="Script" uid="uid://cmwdtrp4qsy6k" path="res://Scripts/C#/Main.cs" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://c221xwmr7nybr" path="res://Scenes/Player1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://3hjhsr56cai1" path="res://Scenes/tile.tscn" id="2_kry3j"]
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/UI/Pause_Menu/node.gd" id="5_21xkr"]
-[ext_resource type="PackedScene" uid="uid://d0s8r7v2ldrxm" path="res://Scenes/Player2.tscn" id="5_344ge"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
-[ext_resource type="Script" uid="uid://g8xvnbgw7uic" path="res://Scripts/C#/UI.cs" id="7_6bp64"]
 [ext_resource type="Texture2D" uid="uid://dieeauraoy0tf" path="res://sprites/image/Спрайт-0020.png" id="7_344ge"]
 [ext_resource type="Script" uid="uid://dgww4cs6xgax3" path="res://Scripts/UI/Main_UI/hp_bar.gd" id="10_6iyac"]
-[ext_resource type="Script" uid="uid://1r1l478k5rqu" path="res://Scripts/UI/Main_UI/turn.gd" id="11_d1ilt"]
 [ext_resource type="Script" uid="uid://pwn1vnedt7nr" path="res://Scripts/UI/Main_UI/mp_bar.gd" id="11_fdnlq"]
 [ext_resource type="Script" uid="uid://c5uhao602221t" path="res://Scripts/UI/Main_UI/player_icon.gd" id="12_fdnlq"]
 [ext_resource type="Script" uid="uid://b80n23ratsceg" path="res://Scripts/Units_scripts/unit_spawner.gd" id="12_jkdf5"]
@@ -27,31 +21,21 @@ loop = true
 [node name="Main" type="Node2D"]
 process_mode = 1
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
-script = ExtResource("2_8gbba")
-TileScene = ExtResource("2_kry3j")
-Player1Scene = ExtResource("2_bo1nx")
-Player2Scene = ExtResource("5_344ge")
-Width = 15
-Height = 10
-Player1Position = Vector2i(2, 2)
-Player2Position = Vector2i(4, 4)
+[node name="UI" type="Node" parent="."]
 
-[node name="UI" type="Node" parent="TileMapLayer"]
-
-[node name="Pausa" type="Node" parent="TileMapLayer/UI"]
+[node name="Pausa" type="Node" parent="UI"]
 process_mode = 3
 script = ExtResource("5_21xkr")
 
-[node name="PauseMenu" type="CanvasLayer" parent="TileMapLayer/UI/Pausa"]
+[node name="PauseMenu" type="CanvasLayer" parent="UI/Pausa"]
 process_mode = 2
 visible = false
 script = ExtResource("6_6bp64")
 
-[node name="PauseMusic" type="AudioStreamPlayer" parent="TileMapLayer/UI/Pausa/PauseMenu"]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="UI/Pausa/PauseMenu"]
 stream = SubResource("AudioStreamOggVorbis_jjvhh")
 
-[node name="Panel" type="Panel" parent="TileMapLayer/UI/Pausa/PauseMenu"]
+[node name="Panel" type="Panel" parent="UI/Pausa/PauseMenu"]
 process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,7 +45,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TileMapLayer/UI/Pausa/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pausa/PauseMenu/Panel"]
 process_mode = 2
 layout_mode = 0
 offset_left = 438.0
@@ -71,23 +55,21 @@ offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="resume" type="Button" parent="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="resume" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "продовжити"
 
-[node name="menu" type="Button" parent="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="menu" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "вийти до головного меню"
 
-[node name="PlayerUI" type="Node" parent="TileMapLayer/UI" node_paths=PackedStringArray("TurnLabel")]
-script = ExtResource("7_6bp64")
-TurnLabel = NodePath("MainUI/TextureRect/Turn")
+[node name="PlayerUI" type="Node" parent="UI"]
 
-[node name="MainUI" type="CanvasLayer" parent="TileMapLayer/UI/PlayerUI"]
+[node name="MainUI" type="CanvasLayer" parent="UI/PlayerUI"]
 
-[node name="TextureRect" type="TextureRect" parent="TileMapLayer/UI/PlayerUI/MainUI"]
+[node name="TextureRect" type="TextureRect" parent="UI/PlayerUI/MainUI"]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -99,7 +81,7 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("7_344ge")
 
-[node name="hp_bar" type="Label" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
+[node name="hp_bar" type="Label" parent="UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 538.5
@@ -109,18 +91,7 @@ theme_override_font_sizes/font_size = 20
 text = "HP:"
 script = ExtResource("10_6iyac")
 
-[node name="Turn" type="Label" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 405.5
-offset_right = 50.0
-offset_bottom = 454.5
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Nope
-"
-script = ExtResource("11_d1ilt")
-
-[node name="mp_bar" type="Label" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
+[node name="mp_bar" type="Label" parent="UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 173.0
 offset_top = 564.5
@@ -130,7 +101,7 @@ theme_override_font_sizes/font_size = 20
 text = "MP: "
 script = ExtResource("11_fdnlq")
 
-[node name="player_icon" type="TextureRect" parent="TileMapLayer/UI/PlayerUI/MainUI/TextureRect"]
+[node name="player_icon" type="TextureRect" parent="UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 538.0
@@ -138,8 +109,12 @@ offset_right = 164.0
 offset_bottom = 677.0
 script = ExtResource("12_fdnlq")
 
+[node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer"]
+
 [node name="UnitSpawner" type="Node" parent="."]
 script = ExtResource("12_jkdf5")
 
-[connection signal="pressed" from="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer/resume" to="TileMapLayer/UI/Pausa" method="_on_resume_pressed"]
-[connection signal="pressed" from="TileMapLayer/UI/Pausa/PauseMenu/Panel/VBoxContainer/menu" to="TileMapLayer/UI/Pausa" method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/resume" to="UI/Pausa" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/menu" to="UI/Pausa" method="_on_menu_pressed"]
