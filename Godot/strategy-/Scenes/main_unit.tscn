@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aolnp"]
 
 [node name="main_unit" type="CharacterBody2D"]
+input_pickable = true
 script = ExtResource("1_di13e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -13,3 +14,6 @@ shape = SubResource("CapsuleShape2D_aolnp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_di13e")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="unit_clicked" from="." to="." method="_on_unit_clicked"]
