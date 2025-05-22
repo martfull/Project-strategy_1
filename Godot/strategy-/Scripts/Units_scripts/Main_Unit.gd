@@ -1,5 +1,7 @@
 class_name Main_Unit extends Unit
 
+signal unit_clicked(unit)
+
 func stats() -> Dictionary:
 	return {
 		"health": 300,
@@ -18,3 +20,7 @@ func stats() -> Dictionary:
 		"texture": "res://sprites/peasant-attack1.png",
 		"unit_type": "Main_Unit"
 	}
+
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		emit_signal("unit_clicked", self)

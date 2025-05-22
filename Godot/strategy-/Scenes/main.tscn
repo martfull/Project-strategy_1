@@ -109,6 +109,22 @@ offset_right = 164.0
 offset_bottom = 677.0
 script = ExtResource("12_fdnlq")
 
+[node name="Button" type="Button" parent="UI/PlayerUI/MainUI/TextureRect"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 857.5
+offset_right = 266.0
+offset_bottom = 898.5
+theme_override_colors/font_disabled_color = Color(0.690196, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.847059, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.768627, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.972549, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.929412, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.905882, 0, 0, 1)
+theme_override_colors/font_color = Color(0.788235, 0.34902, 0.0470588, 1)
+text = "Spawn
+"
+
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer"]
@@ -118,3 +134,4 @@ script = ExtResource("12_jkdf5")
 
 [connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/resume" to="UI/Pausa" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/menu" to="UI/Pausa" method="_on_menu_pressed"]
+[connection signal="pressed" from="UI/PlayerUI/MainUI/TextureRect/Button" to="UnitSpawner" method="_on_button_pressed"]
