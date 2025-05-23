@@ -4,6 +4,11 @@ signal unit_clicked(unit)
 
 func stats() -> Dictionary:
 	return {
+		"team": 0,
+		
+		"price": 30,
+		"cost": 5,
+		
 		"health": 300,
 		"move_speed": 7,
 		"evasion": 10,

@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://c5ml4gbt2uhuy" path="res://Scripts/Units_scripts/unit.gd" id="1_o7rjq"]
 
 [node name="Units" type="CharacterBody2D"]
-input_pickable = true
 script = ExtResource("1_o7rjq")

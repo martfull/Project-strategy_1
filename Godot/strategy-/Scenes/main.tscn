@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=16 format=4 uid="uid://dyfo7mc527ap8"]
 
+[ext_resource type="Script" uid="uid://bim01xaeugu3y" path="res://Scenes/player.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/UI/Pause_Menu/node.gd" id="5_21xkr"]
+[ext_resource type="Texture2D" uid="uid://cxhgrrcq7pnvl" path="res://sprites/image/Спрайт-0010.png" id="5_d1ilt"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://dkrlxfkx6nwuv" path="res://Scenes/gold_amount.gd" id="6_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://dieeauraoy0tf" path="res://sprites/image/Спрайт-0020.png" id="7_344ge"]
+[ext_resource type="Script" uid="uid://bfpepekq7yovj" path="res://Scenes/income_amount.gd" id="8_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://16vncdxwhsvl" path="res://sprites/image/Спрайт-0011.png" id="9_6iyac"]
 [ext_resource type="Script" uid="uid://dgww4cs6xgax3" path="res://Scripts/UI/Main_UI/hp_bar.gd" id="10_6iyac"]
 [ext_resource type="Script" uid="uid://pwn1vnedt7nr" path="res://Scripts/UI/Main_UI/mp_bar.gd" id="11_fdnlq"]
 [ext_resource type="Script" uid="uid://c5uhao602221t" path="res://Scripts/UI/Main_UI/player_icon.gd" id="12_fdnlq"]
@@ -21,21 +26,24 @@ loop = true
 [node name="Main" type="Node2D"]
 process_mode = 1
 
-[node name="UI" type="Node" parent="."]
+[node name="player" type="Node" parent="."]
+script = ExtResource("1_ynf5e")
 
-[node name="Pausa" type="Node" parent="UI"]
+[node name="UI" type="Node" parent="player"]
+
+[node name="Pausa" type="Node" parent="player/UI"]
 process_mode = 3
 script = ExtResource("5_21xkr")
 
-[node name="PauseMenu" type="CanvasLayer" parent="UI/Pausa"]
+[node name="PauseMenu" type="CanvasLayer" parent="player/UI/Pausa"]
 process_mode = 2
 visible = false
 script = ExtResource("6_6bp64")
 
-[node name="PauseMusic" type="AudioStreamPlayer" parent="UI/Pausa/PauseMenu"]
+[node name="PauseMusic" type="AudioStreamPlayer" parent="player/UI/Pausa/PauseMenu"]
 stream = SubResource("AudioStreamOggVorbis_jjvhh")
 
-[node name="Panel" type="Panel" parent="UI/Pausa/PauseMenu"]
+[node name="Panel" type="Panel" parent="player/UI/Pausa/PauseMenu"]
 process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +53,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pausa/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="player/UI/Pausa/PauseMenu/Panel"]
 process_mode = 2
 layout_mode = 0
 offset_left = 438.0
@@ -55,21 +63,21 @@ offset_bottom = 403.38
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="resume" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="resume" type="Button" parent="player/UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "продовжити"
 
-[node name="menu" type="Button" parent="UI/Pausa/PauseMenu/Panel/VBoxContainer"]
+[node name="menu" type="Button" parent="player/UI/Pausa/PauseMenu/Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 text = "вийти до головного меню"
 
-[node name="PlayerUI" type="Node" parent="UI"]
+[node name="PlayerUI" type="Node" parent="player/UI"]
 
-[node name="MainUI" type="CanvasLayer" parent="UI/PlayerUI"]
+[node name="MainUI" type="CanvasLayer" parent="player/UI/PlayerUI"]
 
-[node name="TextureRect" type="TextureRect" parent="UI/PlayerUI/MainUI"]
+[node name="TextureRect" type="TextureRect" parent="player/UI/PlayerUI/MainUI"]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -81,7 +89,35 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("7_344ge")
 
-[node name="hp_bar" type="Label" parent="UI/PlayerUI/MainUI/TextureRect"]
+[node name="gold" type="Sprite2D" parent="player/UI/PlayerUI/MainUI/TextureRect"]
+position = Vector2(44, 417.5)
+texture = ExtResource("5_d1ilt")
+
+[node name="gold_amount" type="Label" parent="player/UI/PlayerUI/MainUI/TextureRect"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 405.5
+offset_right = 109.0
+offset_bottom = 428.5
+theme_override_font_sizes/font_size = 20
+text = "0"
+script = ExtResource("6_fdnlq")
+
+[node name="gold_income" type="Sprite2D" parent="player/UI/PlayerUI/MainUI/TextureRect"]
+position = Vector2(138, 418.5)
+texture = ExtResource("9_6iyac")
+
+[node name="income_amount" type="Label" parent="player/UI/PlayerUI/MainUI/TextureRect"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 405.5
+offset_right = 224.0
+offset_bottom = 433.5
+theme_override_font_sizes/font_size = 20
+text = "0"
+script = ExtResource("8_jkdf5")
+
+[node name="hp_bar" type="Label" parent="player/UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 538.5
@@ -91,7 +127,7 @@ theme_override_font_sizes/font_size = 20
 text = "HP:"
 script = ExtResource("10_6iyac")
 
-[node name="mp_bar" type="Label" parent="UI/PlayerUI/MainUI/TextureRect"]
+[node name="mp_bar" type="Label" parent="player/UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 173.0
 offset_top = 564.5
@@ -101,7 +137,7 @@ theme_override_font_sizes/font_size = 20
 text = "MP: "
 script = ExtResource("11_fdnlq")
 
-[node name="player_icon" type="TextureRect" parent="UI/PlayerUI/MainUI/TextureRect"]
+[node name="player_icon" type="TextureRect" parent="player/UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 538.0
@@ -109,7 +145,7 @@ offset_right = 164.0
 offset_bottom = 677.0
 script = ExtResource("12_fdnlq")
 
-[node name="Button" type="Button" parent="UI/PlayerUI/MainUI/TextureRect"]
+[node name="Button" type="Button" parent="player/UI/PlayerUI/MainUI/TextureRect"]
 layout_mode = 0
 offset_left = 170.0
 offset_top = 857.5
@@ -132,6 +168,6 @@ text = "Spawn
 [node name="UnitSpawner" type="Node" parent="."]
 script = ExtResource("12_jkdf5")
 
-[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/resume" to="UI/Pausa" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pausa/PauseMenu/Panel/VBoxContainer/menu" to="UI/Pausa" method="_on_menu_pressed"]
-[connection signal="pressed" from="UI/PlayerUI/MainUI/TextureRect/Button" to="UnitSpawner" method="_on_button_pressed"]
+[connection signal="pressed" from="player/UI/Pausa/PauseMenu/Panel/VBoxContainer/resume" to="player/UI/Pausa" method="_on_resume_pressed"]
+[connection signal="pressed" from="player/UI/Pausa/PauseMenu/Panel/VBoxContainer/menu" to="player/UI/Pausa" method="_on_menu_pressed"]
+[connection signal="pressed" from="player/UI/PlayerUI/MainUI/TextureRect/Button" to="UnitSpawner" method="_on_button_pressed"]

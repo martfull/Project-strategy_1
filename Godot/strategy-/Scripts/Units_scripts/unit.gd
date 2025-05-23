@@ -1,5 +1,10 @@
 class_name Unit extends CharacterBody2D
 
+var team: int  
+
+var price: int
+var cost: int
+
 var health: int = 100
 var move_speed: int = 1
 var evasion: int = 10
@@ -18,6 +23,9 @@ var texture: String = "None"
 var unit_type: String = "None"
 
 func initialise(stats: Dictionary) -> void:
+	self.price = stats.get("price")
+	self.cost = stats.get("cost")
+	
 	self.health = stats.get("health")
 	self.move_speed = stats.get("move_speed")
 	self.evasion = stats.get("evasion")
@@ -36,6 +44,11 @@ func initialise(stats: Dictionary) -> void:
 
 func stats_now() -> Dictionary:
 	return {
+		"team": self.team,
+		
+		"price": self.price,
+		"cost": self.cost,
+		
 		"health": self.health,
 		"move_speed": self.move_speed,
 		"evasion": self.evasion,
@@ -53,7 +66,6 @@ func stats_now() -> Dictionary:
 		"unit_type": self.unit_type
 	}
 	
-
 
 	
 
