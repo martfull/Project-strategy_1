@@ -18,10 +18,8 @@ func spawn_unit(pos: Vector2):
 	unit.position = pos
 	add_child(unit)
 	unit.initialise(unit.stats())
-	hp_bar.setHP(unit.health, unit.stats()["health"])
-	mp_bar.setMP(unit.move_speed, unit.stats()["move_speed"])
-	player_icon.activate_icon(unit.stats()["texture"])
-	
+	selected_unit = unit
+	update_ui_with_selected_unit()
 	print(unit.stats_now())
 	unit.unit_clicked.connect(_on_unit_clicked) # Підключаємо сигнал тут
 	units.append(unit)
