@@ -1,4 +1,5 @@
 extends Node
+
 @export var unit_scene: PackedScene = preload("res://Scenes/main_unit.tscn")
 var units = [] 
 var players = []
@@ -34,8 +35,13 @@ func spawn_unit(pos: Vector2):
 	add_child(unit)
 	unit.initialise(unit.stats())
 	unit.team = current_player.team
-	selected_unit = unit
+	current_player.gold -= unit.price
+	current_player.income -= unit.cost
+	selected_unit = unit	
+	
 	update_ui_with_selected_unit()
+	player_ui()
+	
 	print(unit.stats_now())
 	unit.unit_clicked.connect(_on_unit_clicked) 
 	units.append(unit)
@@ -43,9 +49,8 @@ func spawn_unit(pos: Vector2):
 
 
 func _on_unit_clicked(unit):
-	checked_unit = unit
-	if checked_unit.team == current_player.team:
-		selected_unit = checked_unit
+	if unit.team == current_player.team:
+		selected_unit = unit
 		update_ui_with_selected_unit()
 	
 func update_ui_with_selected_unit():
@@ -56,8 +61,10 @@ func update_ui_with_selected_unit():
 
 
 func _on_button_pressed() -> void:
-	spawn_unit(Vector2(255,144))
-	
+	if current_player.gold >= 30:
+		spawn_unit(Vector2(255,144))
+	else:
+		print("no gold")
 	
 func die(health):
 	if health <= 0:
@@ -97,4 +104,3 @@ func use_mp(mp:int, cost: int, max_mp):
 func player_ui():
 	gold.set_gold(current_player.gold)
 	income.set_income(current_player.income) 
-	
