@@ -2,25 +2,30 @@ class_name Unit extends CharacterBody2D
 
 var team: int  
 
-var price: int
-var cost: int
+var price: float
+var cost: float
 
-var health: int = 100
+var health: float = 100
 var move_speed: int = 1
-var evasion: int = 10
+var evasion: float = 10
 
 
 var attack1_type: String = "None"
 var attack2_type: String = "None"
-var damage1: int = 1
-var damage2: int = 1
+var damage1: float = 1
+var damage2: float = 1
 var number_attacks1: int = 1
 var number_attacks2: int = 1
 var name_attack1: String = "None"
 var name_attack2: String = "None"
 
+enum AttackType { NONE, CUTTING, CRUSHING, PRICKLY }
+var weaknesses: Dictionary = {}  
+var resistances: Dictionary = {}
+
 var texture: String = "None"
 var unit_type: String = "None"
+
 
 func initialise(stats: Dictionary) -> void:
 	self.price = stats.get("price")
@@ -38,6 +43,9 @@ func initialise(stats: Dictionary) -> void:
 	self.number_attacks2 = stats.get("number_attacks2")
 	self.name_attack1 = stats.get("name_attack1")
 	self.name_attack2 = stats.get("name_attack2")
+	
+	self.weaknesses = stats.get("weaknesses")
+	self.resistances = stats.get("resistances")
 
 	self.texture = stats.get("texture")
 	self.unit_type = stats.get("unit_type")
@@ -61,6 +69,9 @@ func stats_now() -> Dictionary:
 		"number_attacks2": self.number_attacks2,
 		"name_attack1": self.name_attack1,
 		"name_attack2": self.name_attack2,
+		
+		"weaknesses": self.weaknesses,
+		"resistances": self.resistances,
 
 		"texture": self.texture,
 		"unit_type": self.unit_type

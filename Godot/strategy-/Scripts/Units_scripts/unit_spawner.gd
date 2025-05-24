@@ -1,17 +1,22 @@
 extends Node
 
+
 @export var unit_scene: PackedScene = preload("res://Scenes/main_unit.tscn")
+
 var units = [] 
 var players = []
 var current_player: Player
 var selected_unit
 var checked_unit
 var second_selected_unit
+var take_unit
+
 var hp_bar
 var mp_bar
 var player_icon
 var gold
 var income
+
 
 func _ready() -> void:
 	hp_bar = $"../player/UI/PlayerUI/MainUI/TextureRect/hp_bar"
@@ -38,7 +43,6 @@ func spawn_unit(pos: Vector2):
 	current_player.gold -= unit.price
 	current_player.income -= unit.cost
 	selected_unit = unit	
-	
 	update_ui_with_selected_unit()
 	player_ui()
 	
@@ -74,12 +78,12 @@ func die(health):
 		return false
 		
 func set_die():
-	selected_unit.queue_free()
 	hp_bar.setHP(0, 0)
-	mp_bar.setMP(0, 0)	
+	mp_bar.setMP(0, 0)
 	player_icon.not_player()
+	selected_unit.queue_free()
 	
-func taken_damage(hp: int, damage: int, max_hp: int):
+func taken_damage(hp: float, damage: float, max_hp: float):
 	hp -= damage
 	if die(hp) == false:
 		print("не почуствовав")
@@ -89,9 +93,22 @@ func taken_damage(hp: int, damage: int, max_hp: int):
 		set_die()
 		return -1
 		
-func attack():
-	pass
+func attack(attack_type, nums, damage):
+	var modifier = 1.0
+	var final_damage
+	var hp
 	
+	if second_selected_unit.stats()["weaknesses"].has(attack_type):
+		modifier = second_selected_unit.weknesses[attack_type]
+	elif second_selected_unit.stats()["resistances"].has(attack_type):
+		modifier = second_selected_unit.resistances[attack_type]
+		
+	final_damage =  damage * nums * modifier
+	hp = taken_damage(second_selected_unit.health, final_damage, second_selected_unit.stats()["health"])
+	if  0 < hp: second_selected_unit.health = hp
+
+
+		
 func use_mp(mp:int, cost: int, max_mp):
 	mp -= cost
 	if mp >= 0:

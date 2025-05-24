@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/UI/Pause_Menu/node.gd" id="5_21xkr"]
 [ext_resource type="Texture2D" uid="uid://cxhgrrcq7pnvl" path="res://sprites/image/Спрайт-0010.png" id="5_d1ilt"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
-[ext_resource type="Script" path="res://Scenes/gold_amount.gd" id="6_fdnlq"]
+[ext_resource type="Script" uid="uid://dkrlxfkx6nwuv" path="res://Scenes/gold_amount.gd" id="6_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://dieeauraoy0tf" path="res://sprites/image/Спрайт-0020.png" id="7_344ge"]
 [ext_resource type="Script" path="res://Scenes/income_amount.gd" id="8_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://16vncdxwhsvl" path="res://sprites/image/Спрайт-0011.png" id="9_6iyac"]

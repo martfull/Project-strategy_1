@@ -22,6 +22,9 @@ func stats() -> Dictionary:
 		"name_attack1": "Meel",
 		"name_attack2": "None",
 		
+		"weaknesses": {AttackType.CUTTING: 1.5},
+		"resistances": {AttackType.CRUSHING: 0.5, AttackType.PRICKLY: 0.8},
+		
 		"texture": "res://sprites/peasant-attack1.png",
 		"unit_type": "Main_Unit"
 	}
