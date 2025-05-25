@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=17 format=4 uid="uid://dyfo7mc527ap8"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_ynf5e"]
+[ext_resource type="Script" uid="uid://bim01xaeugu3y" path="res://Scenes/player.gd" id="1_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/UI/Pause_Menu/node.gd" id="5_21xkr"]
 [ext_resource type="Texture2D" uid="uid://cxhgrrcq7pnvl" path="res://sprites/image/Спрайт-0010.png" id="5_d1ilt"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
 [ext_resource type="Script" uid="uid://dkrlxfkx6nwuv" path="res://Scenes/gold_amount.gd" id="6_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://dieeauraoy0tf" path="res://sprites/image/Спрайт-0020.png" id="7_344ge"]
-[ext_resource type="Script" path="res://Scenes/income_amount.gd" id="8_jkdf5"]
+[ext_resource type="Script" uid="uid://bfpepekq7yovj" path="res://Scenes/income_amount.gd" id="8_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://16vncdxwhsvl" path="res://sprites/image/Спрайт-0011.png" id="9_6iyac"]
 [ext_resource type="Script" uid="uid://dgww4cs6xgax3" path="res://Scripts/UI/Main_UI/hp_bar.gd" id="10_6iyac"]
 [ext_resource type="Script" uid="uid://pwn1vnedt7nr" path="res://Scripts/UI/Main_UI/mp_bar.gd" id="11_fdnlq"]
@@ -22,6 +22,11 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_jjvhh"]
 packet_sequence = SubResource("OggPacketSequence_j531d")
 loop = true
+
+[sub_resource type="TileSet" id="TileSet_fdnlq"]
+tile_shape = 3
+tile_offset_axis = 1
+tile_size = Vector2i(72, 72)
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -163,7 +168,8 @@ text = "Spawn
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer"]
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMapLayer"]
+tile_set = SubResource("TileSet_fdnlq")
 
 [node name="UnitSpawner" type="Node" parent="."]
 script = ExtResource("12_jkdf5")

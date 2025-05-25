@@ -121,3 +121,7 @@ func use_mp(mp:int, cost: int, max_mp):
 func player_ui():
 	gold.set_gold(current_player.gold)
 	income.set_income(current_player.income) 
+	
+func move(pos: Vector2):
+	selected_unit.position = pos
+	
