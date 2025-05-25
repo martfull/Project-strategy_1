@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://dyfo7mc527ap8"]
+[gd_scene load_steps=15 format=4 uid="uid://dyfo7mc527ap8"]
 
 [ext_resource type="Script" uid="uid://bim01xaeugu3y" path="res://Scenes/player.gd" id="1_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://c75ar2ysmrr27" path="res://Scenes/map.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://om45ntt3386m" path="res://Scripts/UI/Pause_Menu/node.gd" id="5_21xkr"]
 [ext_resource type="Texture2D" uid="uid://cxhgrrcq7pnvl" path="res://sprites/image/Спрайт-0010.png" id="5_d1ilt"]
 [ext_resource type="Script" uid="uid://x5fy34wpf62p" path="res://Scripts/UI/Pause_Menu/pause_menu.gd" id="6_6bp64"]
@@ -22,11 +21,6 @@ sampling_rate = 44100.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_jjvhh"]
 packet_sequence = SubResource("OggPacketSequence_j531d")
 loop = true
-
-[sub_resource type="TileSet" id="TileSet_fdnlq"]
-tile_shape = 3
-tile_offset_axis = 1
-tile_size = Vector2i(72, 72)
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -165,11 +159,6 @@ theme_override_colors/icon_hover_color = Color(0.905882, 0, 0, 1)
 theme_override_colors/font_color = Color(0.788235, 0.34902, 0.0470588, 1)
 text = "Spawn
 "
-
-[node name="TileMapLayer" parent="." instance=ExtResource("2_jjvhh")]
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="TileMapLayer"]
-tile_set = SubResource("TileSet_fdnlq")
 
 [node name="UnitSpawner" type="Node" parent="."]
 script = ExtResource("12_jkdf5")
