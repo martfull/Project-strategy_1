@@ -8,4 +8,5 @@ func _input(event):
 		# Перетворюємо позицію миші в координати тайла
 		var tile_coords = local_to_map(mouse_pos)
 		
+		
 		print(tile_coords)
